@@ -38,6 +38,25 @@ class CodeChallenge04
     phone_number_hash
   end
 
+  def format_number_with_extension(phone_number)
+    phone_number_hash = { phone_number: '', extension: '' }
+    phone_number_hash[:phone_number] = remove_extension_number(phone_number)
+    phone_number_hash[:extension] = extract_extension(phone_number)
+    phone_number_hash
+  end
+
+  def remove_extension_number(phone_number)
+    extension_index = phone_number.index('x')
+    phone_number = phone_number.slice(0...extension_index)
+    set_phone_number_format(phone_number)
+  end
+
+  def extract_extension(phone_number)
+    extension_index = phone_number.index('x')
+    extension_number = phone_number.slice(extension_index..phone_number.length)
+    extension_number.sub('x', '')
+  end
+
   def set_phone_number_format(phone_number)
     phone_number = phone_number.insert(0, '(')
     phone_number = phone_number.insert(4, ')')

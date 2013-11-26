@@ -45,3 +45,11 @@
 22)Pass Test format phone number (xxx)xxx-xxxx
 
 23) Zero Rubocop offenses
+
+24) Test phone number with Extension
+
+25)Zero Rubocop offenses
+
+26)Pass test phone number with Extension
+
+27)Zero Rubocop offenses

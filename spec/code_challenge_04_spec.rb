@@ -20,4 +20,14 @@ describe CodeChallenge04 do
     input = '793.987.1472'
     CodeChallenge04.new.format_phone_number(input).should == output_hash
   end
+  it 'should format a phone number from 1-xxx-xxx-xxxx to (xxx)xxx-xxxx' do
+    output_hash = { phone_number: '(559)420-4347', extension: '' }
+    input = '1-559-420-4347'
+    CodeChallenge04.new.format_phone_number(input).should == output_hash
+  end
+  it 'should format a phone number from to (xxx)xxx-xxxx Ext.xxx' do
+    output_hash = { phone_number: '(889)500-2922', extension: '62665' }
+    input = '889.500.2922 x62665'
+    CodeChallenge04.new.format_phone_number(input).should == output_hash
+  end
 end
