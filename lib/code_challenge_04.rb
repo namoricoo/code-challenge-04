@@ -5,14 +5,6 @@ class CodeChallenge04
     @prefix_hash = { 'Ms.' => 1, 'Mr.' => 2, 'Miss' => 3 }
   end
 
-  def is_prefix?(text_input)
-    if @prefix_hash[text_input].nil?
-      false
-    else
-      true
-    end
-  end
-
   def format_phone_number(phone_number)
     phone_number = remove_phone_number_format(phone_number)
     if is_numeric?(phone_number) && (phone_number.length == 10)
@@ -86,7 +78,7 @@ class CodeChallenge04
 
   def convert_array_input_to_hash(text_input_array, person_information)
     text_input_array.each do |value|
-      if is_prefix?(value)
+      if person_information.is_prefix?(value)
         person_information.set_prefix(value)
       elsif is_phone_number?(value)
         set_phone_number_and_extension(value, person_information)
@@ -111,5 +103,14 @@ class CodeChallenge04
     phone_number_hash = format_phone_number(value)
     person_information.set_phone_number(phone_number_hash[:phone_number])
     person_information.set_extension(phone_number_hash[:extension])
+  end
+
+  def string_array_to_hash_array(input_array)
+    output_hash = {}
+    input_array.each_with_index do |value, index|
+      output_array = format_string_input_to_csv(value)
+      output_hash[index] = output_array
+    end
+    output_hash
   end
 end

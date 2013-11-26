@@ -2,6 +2,7 @@
 class PersonInformation
   attr_accessor :person_info_hash
   def initialize
+    @prefix_hash = { 'Ms.' => 1, 'Mr.' => 2, 'Miss' => 3 }
     initialize_person_hash
   end
 
@@ -78,5 +79,13 @@ class PersonInformation
       csv_array << value
     end
     csv_array
+  end
+
+  def is_prefix?(text_input)
+    if @prefix_hash[text_input].nil?
+      false
+    else
+      true
+    end
   end
 end

@@ -69,3 +69,5 @@
 34)Pass Test for CSV write data to file
 
 35)Zero Rubocop offenses
+
+36)Optimize code to be more modular

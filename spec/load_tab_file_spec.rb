@@ -4,6 +4,6 @@ require_relative 'spec_helper.rb'
 describe LoadTabFile do
   it 'loads tab separated values from a text file into an array' do
     file_name = 'raw_customers_test.txt'
-    LoadTabFile.new(file_name).read_file_into_array.should_not  == nil?
+    LoadTabFile.new(file_name).read_file_into_array.nil? == false
   end
 end

@@ -5,16 +5,16 @@ require_relative 'spec_helper.rb'
 # Code challenge 04 spec
 describe CodeChallenge04 do
   it 'should test true for prefix Ms.' do
-    CodeChallenge04.new.is_prefix?('Ms.').should == true
+    PersonInformation.new.is_prefix?('Ms.').should == true
   end
   it 'should test true for prefix Mr.' do
-    CodeChallenge04.new.is_prefix?('Mr.').should == true
+    PersonInformation.new.is_prefix?('Mr.').should == true
   end
   it 'should test true for prefix Miss' do
-    CodeChallenge04.new.is_prefix?('Miss').should == true
+    PersonInformation.new.is_prefix?('Miss').should == true
   end
   it 'should test false for invalid prefix' do
-    CodeChallenge04.new.is_prefix?('Junk').should == false
+    PersonInformation.new.is_prefix?('Junk').should == false
   end
   it 'should format a phone number to (xxx)xxx-xxxx' do
     output_hash = { phone_number: '(793)987-1472', extension: '' }
@@ -36,10 +36,22 @@ describe CodeChallenge04 do
     input = 'Mr. Jovanny Keefe 402.925.6180'
     CodeChallenge04.new.format_string_input_to_csv(input).should == output
   end
-  it 'should create file customers.csv and write file to it ' do
-    input = 'Mr. Jovanny Keefe 402.925.6180'
-    output_array = CodeChallenge04.new.format_string_input_to_csv(input)
+  # it 'should create file customers.csv and write file to it ' do
+    # input = 'Mr. Jovanny Keefe 402.925.6180'
+    # output_array = CodeChallenge04.new.format_string_input_to_csv(input)
+    # file = 'customers.csv'
+    # CsvHelper.new(file).add_text_to_csv_file(output_array).should == true
+  # end
+  it 'should format a hash of Arrays ready to go to csv' do
+    input_text = 'raw_customers_test.txt'
+    input_array = LoadTabFile.new(input_text).read_file_into_array
+    CodeChallenge04.new.string_array_to_hash_array(input_array).nil? == false
+  end
+  it 'should create file customers.csv and write multi-line out ouput ' do
+    input_text = 'raw_customers_test.txt'
+    input_array = LoadTabFile.new(input_text).read_file_into_array
+    output_hash = CodeChallenge04.new.string_array_to_hash_array(input_array)
     file = 'customers.csv'
-    CsvHelper.new(file).add_text_to_csv_file(output_array).should == true
+    CsvHelper.new(file).add_hash_to_csv_file(output_hash).nil? == false
   end
 end
