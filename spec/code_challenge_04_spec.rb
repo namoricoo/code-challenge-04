@@ -30,4 +30,9 @@ describe CodeChallenge04 do
     input = '889.500.2922 x62665'
     CodeChallenge04.new.format_phone_number(input).should == output_hash
   end
+  it 'should format a string input to an Array' do
+    output =  ['Mr.', 'Jovanny', '', 'Keefe', '', '(402)925-6180', '']
+    input = 'Mr. Jovanny Keefe 402.925.6180'
+    CodeChallenge04.new.format_string_input_to_csv(input).should == output
+  end
 end

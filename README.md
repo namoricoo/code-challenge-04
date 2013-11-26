@@ -53,3 +53,7 @@
 26)Pass test phone number with Extension
 
 27)Zero Rubocop offenses
+
+28) Test format string input to array
+
+29)Zero Rubocop offenses
