@@ -11,3 +11,7 @@
 5)Write test to identify prefix Ms.
 
 6)Zero Rubocop offenses for code_challenge_04
+
+7)Pass test to identify prefix Ms.
+
+8)Zero Rubocop offenses for code_challenge_04
