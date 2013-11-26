@@ -12,4 +12,7 @@ describe CodeChallenge04 do
   it 'should test true for prefix Miss' do
     CodeChallenge04.new.is_prefix?('Miss').should == true
   end
+  it 'should test false for invalid prefix' do
+    CodeChallenge04.new.is_prefix?('Junk').should == false
+  end
 end

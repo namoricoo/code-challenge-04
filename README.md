@@ -31,3 +31,9 @@
 15)Pass Test to identify prefix Miss
 
 16)Zero Rubocop offenses for code_challenge_04
+
+17) Write test for invalid prefix
+
+18)Zero Rubocop offenses for code_challenge_04
+
+19)Auto Pass test for invalid prefix
