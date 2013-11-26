@@ -27,3 +27,7 @@
 13)Test to identify prefix Miss
 
 14)Zero Rubocop offenses for code_challenge_04
+
+15)Pass Test to identify prefix Miss
+
+16)Zero Rubocop offenses for code_challenge_04
