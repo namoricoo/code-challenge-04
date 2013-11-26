@@ -41,3 +41,7 @@
 20)Test format phone number (xxx)xxx-xxxx
 
 21) Zero Rubocop offenses
+
+22)Pass Test format phone number (xxx)xxx-xxxx
+
+23) Zero Rubocop offenses
