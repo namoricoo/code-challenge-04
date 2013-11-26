@@ -65,3 +65,7 @@
 32)Test for CSV write data to file
 
 33)Zero Rubocop offenses
+
+34)Pass Test for CSV write data to file
+
+35)Zero Rubocop offenses
