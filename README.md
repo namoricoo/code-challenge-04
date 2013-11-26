@@ -71,3 +71,5 @@
 35)Zero Rubocop offenses
 
 36)Optimize code to be more modular
+
+37)Output extension to csv now working

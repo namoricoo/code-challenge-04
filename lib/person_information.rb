@@ -42,7 +42,7 @@ class PersonInformation
   end
 
   def set_extension(extension)
-    @person_info_hash['extension'] = extension
+    @person_info_hash['extension'] = extension.sub('x','')
   end
 
   def get_prefix
@@ -87,5 +87,22 @@ class PersonInformation
     else
       true
     end
+  end
+
+  def is_phone_number?(input)
+    phone_number = remove_phone_number_format(input)
+    if  /^0|[1-9]\d*$/ =~ phone_number
+      true
+    else
+      false
+    end
+  end
+
+  def remove_phone_number_format(phone_number)
+    phone_number = phone_number.gsub('(', '')
+    phone_number = phone_number.gsub(')', '')
+    phone_number = phone_number.gsub('-', '')
+    phone_number = phone_number.gsub('.', '')
+    phone_number.gsub(' ', '')
   end
 end

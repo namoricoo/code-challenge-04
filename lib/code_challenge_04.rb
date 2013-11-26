@@ -58,16 +58,11 @@ class CodeChallenge04
 
   def is_numeric?(input)
     /^0|[1-9]\d*$/ =~ input
-  end
+  end  
 
-  def is_phone_number?(input)
-    phone_number = remove_phone_number_format(input)
-    if  /^0|[1-9]\d*$/ =~ phone_number
-      true
-    else
-      false
-    end
-  end
+  def  is_extension?(input)
+    /^[x]|[1-9]\d*$ / =~ input
+  end 
 
   def format_string_input_to_csv(text_input)
     person_information = PersonInformation.new
@@ -80,7 +75,9 @@ class CodeChallenge04
     text_input_array.each do |value|
       if person_information.is_prefix?(value)
         person_information.set_prefix(value)
-      elsif is_phone_number?(value)
+      elsif is_extension?(value)
+        person_information.set_extension(value)  
+      elsif person_information.is_phone_number?(value)
         set_phone_number_and_extension(value, person_information)
       else
         set_rest_of_person_fields(value, person_information)
