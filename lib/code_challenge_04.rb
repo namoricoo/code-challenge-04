@@ -58,11 +58,15 @@ class CodeChallenge04
 
   def is_numeric?(input)
     /^0|[1-9]\d*$/ =~ input
-  end  
+  end
+
+  def is_string?(input)
+    /^[A-z]+$/ =~ input
+  end
 
   def  is_extension?(input)
     /^[x]|[1-9]\d*$ / =~ input
-  end 
+  end
 
   def format_string_input_to_csv(text_input)
     person_information = PersonInformation.new
@@ -72,27 +76,51 @@ class CodeChallenge04
   end
 
   def convert_array_input_to_hash(text_input_array, person_information)
-    text_input_array.each do |value|
+    text_input_array.each_with_index do |value, index|
       if person_information.is_prefix?(value)
         person_information.set_prefix(value)
-      elsif is_extension?(value)
-        person_information.set_extension(value)  
-      elsif person_information.is_phone_number?(value)
-        set_phone_number_and_extension(value, person_information)
       else
-        set_rest_of_person_fields(value, person_information)
+        next_val = text_input_array[index + 1]
+        set_rest_of_person_fields(value, next_val, person_information)
       end
     end
     person_information.formated_cvs_values
   end
 
-  def set_rest_of_person_fields(value, person_information)
+  def set_rest_of_person_fields(value, next_input, person_information)
     if person_information.get_first_name == ''
       person_information.set_first_name(value)
+    elsif is_middle_name?(value, next_input, person_information)
+      person_information.set_middle_name(value)
     elsif person_information.get_last_name == ''
       person_information.set_last_name(value)
+    elsif is_suffix?(value, person_information)
+      person_information.set_suffix(value)
+    end
+    set_phone_information(value,  person_information)
+  end
+
+  def set_phone_information(value,  person_information)
+    if is_extension?(value)
+      person_information.set_extension(value)
+    elsif person_information.is_phone_number?(value)
+      set_phone_number_and_extension(value, person_information)
+    end
+  end
+
+  def is_middle_name?(value, next_input, person_information)
+    if (person_information.get_middle_name == '') && is_string?(next_input)
+      true
     else
-      puts 'I see something else'
+      false
+    end
+  end
+
+  def is_suffix?(value, person_information)
+    if (person_information.get_suffix == '') && is_string?(value)
+      true
+    else
+      false
     end
   end
 

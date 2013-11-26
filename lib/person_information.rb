@@ -42,7 +42,7 @@ class PersonInformation
   end
 
   def set_extension(extension)
-    @person_info_hash['extension'] = extension.sub('x','')
+    @person_info_hash['extension'] = extension.sub('x', '')
   end
 
   def get_prefix
