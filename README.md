@@ -17,3 +17,7 @@
 8)Zero Rubocop offenses for code_challenge_04
 
 9)Write test to identify prefix Mr.
+
+10)Zero Rubocop offenses for code_challenge_04
+
+11)Pass test to identify prefix Mr.
