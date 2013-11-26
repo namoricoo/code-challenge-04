@@ -57,3 +57,7 @@
 28) Test format string input to array
 
 29)Zero Rubocop offenses
+
+30) Pass Test format string input to array
+
+31)Zero Rubocop offenses

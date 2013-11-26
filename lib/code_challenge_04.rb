@@ -1,3 +1,4 @@
+require_relative 'person_information.rb'
 # code challenge 04 class
 class CodeChallenge04
   def initialize
@@ -74,5 +75,41 @@ class CodeChallenge04
     else
       false
     end
+  end
+
+  def format_string_input_to_csv(text_input)
+    person_information = person_information.new
+    text_input_array = text_input.split(' ')
+    convert_array_input_to_hash(text_input_array, person_information)
+    person_information.formated_cvs_values
+  end
+
+  def convert_array_input_to_hash(text_input_array, person_information)
+    text_input_array.each do |value|
+      if is_prefix?(value)
+        person_information.set_prefix(value)
+      elsif is_phone_number?(value)
+        set_phone_number_and_extension(value, person_information)
+      else
+        set_rest_of_person_fields(value, person_information)
+      end
+    end
+    person_information.formated_cvs_values
+  end
+
+  def set_rest_of_person_fields(value, person_information)
+    if person_information.get_first_name == ''
+      person_information.set_first_name(value)
+    elsif person_information.get_last_name == ''
+      person_information.set_last_name(value)
+    else
+      puts 'I see something else'
+    end
+  end
+
+  def set_phone_number_and_extension(value, person_information)
+    phone_number_hash = format_phone_number(value)
+    person_information.set_phone_number(phone_number_hash[:phone_number])
+    person_information.set_extension(phone_number_hash[:extension])
   end
 end
