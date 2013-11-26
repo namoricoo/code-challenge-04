@@ -21,3 +21,9 @@
 10)Zero Rubocop offenses for code_challenge_04
 
 11)Pass test to identify prefix Mr.
+
+12)Zero Rubocop offenses for code_challenge_04
+
+13)Test to identify prefix Miss
+
+14)Zero Rubocop offenses for code_challenge_04
