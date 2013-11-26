@@ -5,7 +5,8 @@ class CodeChallenge04
   end
 
   def is_prefix?(text_input)
-    if @prefix_hash[text_input] == nil?
+    puts "Empty= #{@prefix_hash[text_input]}"
+    if @prefix_hash[text_input].nil?
       false
     else
       true

@@ -6,4 +6,7 @@ describe CodeChallenge04 do
   it 'should test true for prefix Ms.' do
     CodeChallenge04.new.is_prefix?('Ms.').should == true
   end
+  it 'should test true for prefix Mr.' do
+    CodeChallenge04.new.is_prefix?('Mr.').should == true
+  end
 end
