@@ -35,4 +35,10 @@ describe CodeChallenge04 do
     input = 'Mr. Jovanny Keefe 402.925.6180'
     CodeChallenge04.new.format_string_input_to_csv(input).should == output
   end
+  it 'should create file customers.csv and write file to it ' do
+    input = 'Mr. Jovanny Keefe 402.925.6180'
+    output_array = CodeChallenge04.new.format_string_input_to_csv(input)
+    file = 'customers.csv'
+    CsvHelper.new(file).add_text_to_csv_file(output_array).should == true
+  end
 end

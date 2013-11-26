@@ -61,3 +61,7 @@
 30) Pass Test format string input to array
 
 31)Zero Rubocop offenses
+
+32)Test for CSV write data to file
+
+33)Zero Rubocop offenses
