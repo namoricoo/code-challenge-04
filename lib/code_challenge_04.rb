@@ -78,7 +78,7 @@ class CodeChallenge04
   end
 
   def format_string_input_to_csv(text_input)
-    person_information = person_information.new
+    person_information = PersonInformation.new
     text_input_array = text_input.split(' ')
     convert_array_input_to_hash(text_input_array, person_information)
     person_information.formated_cvs_values
