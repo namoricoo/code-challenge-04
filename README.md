@@ -37,3 +37,7 @@
 18)Zero Rubocop offenses for code_challenge_04
 
 19)Auto Pass test for invalid prefix
+
+20)Test format phone number (xxx)xxx-xxxx
+
+21) Zero Rubocop offenses

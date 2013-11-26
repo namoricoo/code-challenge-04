@@ -15,4 +15,9 @@ describe CodeChallenge04 do
   it 'should test false for invalid prefix' do
     CodeChallenge04.new.is_prefix?('Junk').should == false
   end
+  it 'should format a phone number to (xxx)xxx-xxxx' do
+    output_hash = { phone_number: '(793)987-1472', extension: '' }
+    input = '793.987.1472'
+    CodeChallenge04.new.format_phone_number(input).should == output_hash
+  end
 end
